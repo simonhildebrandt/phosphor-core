@@ -1,0 +1,14 @@
+import * as Icons from "phosphor-react";
+import { IconEntry, IconCategory } from ".";
+
+export const icons: ReadonlyArray<IconEntry> = [
+  <% icons.forEach(icon => { %>{
+    name: "<%= icon.name %>",
+    categories: [<%= iconCategories(icon.searchCategories) %>],
+    tags: <%- iconTags(icon.tags, icon.published_in) %>,
+    publishedIn: "<%= semVer(icon.published_in) %>",
+    Icon: <%= iconComponent(icon.name) %>,
+  },<% }) %>
+];
+
+export const iconCount = (icons.length);

@@ -1,0 +1,69 @@
+{
+  "name": "phosphor-core",
+  "version": "1.4.0",
+  "description": "Core data for the Phosor Icon ecosystem",
+  "main": "dist/index.js",
+  "typings": "dist/types.ts",
+  "repository": "git@github.com:phosphor-icons/phosphor-core.git",
+  "author": {
+    "name": "Tobias Fried",
+    "email": "friedtm@gmail.com",
+    "url": "https://tobiasfried.com"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "fetch": "node ./bin/fetch.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/phosphor-core.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/phosphor-core.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "axios": "^0.26.0",
+    "camelcase": "^6.3.0",
+    "chalker": "^1.2.0",
+    "ejs": "^3.1.6",
+    "husky": "^7.0.4",
+    "phosphor-react": "^1.4.1",
+    "semver": "^7.3.5",
+    "size-limit": "^7.0.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.2"
+  },
+  "peerDependencies": {
+    "phosphor-react": "^1.4.1"
+  }
+}
